@@ -1,6 +1,7 @@
 {
-    "name": "gdm/ispconfig-soap-client",
+    "name": "dragu/ispconfig-soap-client",
     "description": "A simple wrapper around ISPConfigs Remote API using Soap",
+    "keywords": ["api", "ispconfig"],
     "authors": [
         {
             "name": "Corey Sewell",
