@@ -286,6 +286,8 @@ interface SoapClientInterface
 
     public function sitesWebFolderUserDelete($primaryId);
 
+    public function siteInstallPackage($packageId, $params);
+
     public function domainsDomainGet($primaryId);
 
     public function domainsDomainAdd($clientId, $params);

@@ -871,6 +871,20 @@ class SoapClient extends AbstractSoapClient
         return $this->makeCall('sites_web_folder_user_delete', $this->getSessionId(), $primaryId);
     }
 
+    public function siteInstallPackage($packageId, $params)
+    {
+        return $this->makeCall('sites_aps_install_package', $this->getSessionId(), $packageId, array_merge([
+            'main_domain' => '',
+            'license' => 'on',
+            'main_location' => '',
+            'main_database_password' => '',
+            'ADMINPASSWORD' => '',
+            'repeat_password' => '',
+            'locale' => 'pl-PL',
+            'install' => 1,
+        ], $params));
+    }
+
     public function domainsDomainGet($primaryId)
     {
         return $this->makeCall('domains_domain_get', $this->getSessionId(), $primaryId);
