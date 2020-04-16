@@ -240,7 +240,7 @@ interface SoapClientInterface
 
     public function sitesWebDomainGet($primaryId);
 
-    public function sitesWebDomainAdd($clientId, $domain, $serverId = 1, $ipAddress = '*', $subdomain = 'www', $hd_quota = '-1', $traffic_quota = '-1', $allow_override = 'All', $pm_process_idle_timeout = '10', $pm_max_requests = '0', $pm_max_children = '10', $pm_start_servers = '2', $pm_max_spare_servers = '5', $errordocs = 1, $php = 'php-fpm', $stats_type = 'webalizer', $pm = 'dynamic', $active = 'y', $suexec = 'y', $vhost_type = 'name', $type = 'vhost', $fastcgi_php_version = 'PHP 5.4.30:/etc/init.d/php-5.4.30-fpm:/opt/phpfarm/inst/php-5.4.30/lib/:/opt/phpfarm/inst/php-5.4.30/etc/pool.d/', $readonly = 0);
+    public function sitesWebDomainAdd($clientId, $params, $readonly);
 
     public function sitesWebDomainUpdate($clientId, $primaryId, $params);
 

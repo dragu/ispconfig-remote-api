@@ -652,94 +652,36 @@ class SoapClient extends AbstractSoapClient
         return $this->makeCall('sites_web_domain_get', $this->getSessionId(), $primaryId);
     }
 
-    /**
-     *
-     * @param type $clientId
-     * @param type $domain
-     * @param type $serverId
-     * @param type $ipAddress
-     * @param type $subdomain
-     * @param type $hd_quota
-     * @param type $traffic_quota
-     * @param type $allow_override
-     * @param type $pm_max_children
-     * @param type $pm_start_servers
-     * @param type $pm_min_spare_servers
-     * @param type $pm_max_spare_servers
-     * @param type $pm_process_idle_timeout
-     * @param type $pm_max_requests
-     * @param type $errordocs
-     * @param type $php
-     * @param type $stats_type
-     * @param type $pm
-     * @param type $active
-     * @param type $suexec
-     * @param type $vhost_type
-     * @param type $type
-     * @param type $fastcgi_php_version
-     * @param type $readonly
-     * @param type $http_port
-     * @param type $https_port
-     * @return type
-     */
-    public function sitesWebDomainAdd($clientId, $domain, $serverId = 1, $ipAddress = '*', $subdomain = 'www', $hd_quota = '-1', $traffic_quota = '-1', $allow_override = 'All', $pm_max_children = '10', $pm_start_servers = '2', $pm_min_spare_servers = '1', $pm_max_spare_servers = '5', $pm_process_idle_timeout = '10', $pm_max_requests = '0', $errordocs = '1', $php = 'fast-cgi', $stats_type = 'webalizer', $pm = 'dynamic', $active = 'y', $suexec = 'y', $vhost_type = 'name', $type = 'vhost', $fastcgi_php_version = '', $readonly = '0', $http_port = 80, $https_port = 443, $apache_directives = '')
+    public function sitesWebDomainAdd($clientId, $params, $readonly)
     {
-        $params = [
-            'server_id'               => $serverId,
-            'ip_address'              => $ipAddress,
-            'domain'                  => $domain,
-            'type'                    => $type,
-//            'parent_domain_id'        => 0,
-//            'vhost_type'              => 'name',
-            'vhost_type'              => $vhost_type,
-            'hd_quota'                => $hd_quota,
-            'traffic_quota'           => $traffic_quota,
-//            'cgi'                     => 'y',
-//            'ssi'                     => 'y',
-//            'suexec'                  => 'y',
-            'errordocs'               => $errordocs,
-//            'is_subdomainwww'         => 1,
-            'subdomain'               => $subdomain,
-            'php'                     => $php,
-//            'ruby'                    => 'n',
-//            'redirect_type'           => '',
-//            'redirect_path'           => '',
-//            'ssl'                     => 'n',
-//            'ssl_state'               => '',
-//            'ssl_locality'            => '',
-//            'ssl_organisation'        => '',
-//            'ssl_organisation_unit'   => '',
-//            'ssl_country'             => '',
-//            'ssl_domain'              => '',
-//            'ssl_request'             => '',
-//            'ssl_key'                 => '',
-//            'ssl_cert'                => '',
-//            'ssl_bundle'              => '',
-//            'ssl_action'              => '',
-//            'stats_password'          => '',
-            'stats_type'              => $stats_type,
-            'allow_override'          => $allow_override,
-            'apache_directives'       => $apache_directives,
-//            'php_open_basedir'        => '/',
-//            'pm_max_requests'         => 0,
-//            'pm_process_idle_timeout' => 10,
-            'pm'                      => $pm,
-            'pm_max_children'         => $pm_max_children,
-            'pm_start_servers'        => $pm_start_servers,
-            'pm_min_spare_servers'    => $pm_min_spare_servers,
-            'pm_max_spare_servers'    => $pm_max_spare_servers,
-            'pm_process_idle_timeout' => $pm_process_idle_timeout,
-            'pm_max_requests'         => $pm_max_requests,
-//            'custom_php_ini'          => '',
-//            'backup_interval'         => '',
-//            'backup_copies'           => 1,
+        $params = array_merge([
+            'server_id'               => 1,
+            'ip_address'              => '*',
+            'domain'                  => '',
+            'type'                    => 'vhost',
+            'vhost_type'              => 'name',
+            'hd_quota'                => '-1',
+            'traffic_quota'           => '-1',
+            'errordocs'               => '1',
+            'subdomain'               => 'www',
+            'php'                     => 'fast-cgi',
+            'stats_type'              => 'webalizer',
+            'allow_override'          => 'All',
+            'apache_directives'       => '',
+            'pm'                      => 'dynamic',
+            'pm_max_children'         => '10',
+            'pm_start_servers'        => '2',
+            'pm_min_spare_servers'    => '1',
+            'pm_max_spare_servers'    => '5',
+            'pm_process_idle_timeout' => '10',
+            'pm_max_requests'         => '0',
             'active'                  => 'y',
-//            'traffic_quota_lock'      => 'n'
-            'suexec'                  => $suexec,
-            'fastcgi_php_version'     => $fastcgi_php_version,
-            'http_port'               => $http_port,
-            'https_port'              => $https_port,
-        ];
+            'suexec'                  => 'y',
+            'fastcgi_php_version'     => '',
+            'http_port'               => 80,
+            'https_port'              => 443,
+        ], $params);
+
         return $this->makeCall('sites_web_domain_add', $this->getSessionId(), $clientId, $params, $readonly);
     }
 
