@@ -288,6 +288,8 @@ interface SoapClientInterface
 
     public function siteInstallPackage($packageId, $params);
 
+    public function sitePackageGet($packageId);
+
     public function domainsDomainGet($primaryId);
 
     public function domainsDomainAdd($clientId, $params);

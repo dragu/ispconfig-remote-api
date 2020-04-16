@@ -885,6 +885,11 @@ class SoapClient extends AbstractSoapClient
         ], $params));
     }
 
+    public function sitePackageGet($packageId)
+    {
+        return $this->makeCall('sites_aps_instance_get', $this->getSessionId(), $packageId);
+    }
+
     public function domainsDomainGet($primaryId)
     {
         return $this->makeCall('domains_domain_get', $this->getSessionId(), $primaryId);
